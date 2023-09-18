@@ -3,11 +3,16 @@ import os
 import pandas as pd
 # from django.http import HttpResponse
 from django.shortcuts import render
+from datetime import datetime
 
 
 # Create your views here.
 def welcome(request):
-    return render(request, 'displayData/welcome.html')
+    today = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    temp = "Welcome to Dashboard"
+    temp = temp + " , " + "Current Date time : {}".format(today)
+    context = {'d': temp}
+    return render(request, 'displayData/welcome.html', context)
     # return HttpResponse("Welcome to Data Display Home Page")
 
 

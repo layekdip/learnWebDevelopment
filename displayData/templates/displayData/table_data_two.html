@@ -31,26 +31,16 @@
         <table class="table table-dark table-striped">
             <thead>
                 <tr>
-                    <th>total_bill</th>
-                    <th>tip</th>
-                    <th>city</th>
-                    <th>sex</th>
-                    <th>smoker</th>
-                    <th>time</th>
-                    <th>size</th>
+                    <th>age</th>
+                    <th>tax</th>
                 </tr>
             </thead>
             <tbody>
             {% if d %}
             {% for i in d %}
             <tr>
-                <td>{{i.total_bill}}</td>
-                <td>{{i.tip}}</td>
-                <td>{{i.city}}</td>
-                <td>{{i.sex}}</td>
-                <td>{{i.smoke}}</td>
-                <td>{{i.time}}</td>
-                <td>{{i.size}}</td>
+                <td>{{i.AGE}}</td>
+                <td>{{i.TAX}}</td>
             </tr>
             {% endfor %}
             {% endif %}
