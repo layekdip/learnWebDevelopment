@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from displayData.scripts.time_provider import get_time
 from displayData.scripts.read_data import get_data
-
+from displayData.scripts.plot_data import plot_data_with_bar
 
 # Create your views here.
 def welcome(request):
@@ -20,3 +20,14 @@ def table_view_two(request):
     data_file_name = "boston.csv"
     context = {'time': get_time(), 'd': get_data(data_file_name)}
     return render(request, 'displayData/table_data_two.html', context)
+
+
+def data_analysis(request):
+    data_file_name = "restaurant.csv"
+    x_axis = 'city'
+    y_axis = 'tip'
+    context = {'time': get_time(),
+               'graph': plot_data_with_bar(data_file_name, x_axis, y_axis),
+               'graph_param': 'Fields in use for graph - X Axis : {} , Y Axis : {}'
+               .format(x_axis, y_axis)}
+    return render(request, 'displayData/data_analysis.html', context)
