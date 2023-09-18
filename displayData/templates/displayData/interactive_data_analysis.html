@@ -1,6 +1,6 @@
 <!-- Write HTML code here -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>TableView - Startup</title>
     <meta charset="utf-8">
@@ -36,8 +36,28 @@
 </div>
 <div>
     <br>
-    <p class="text-center">{{ data_source }}</p><br>
-    <p class="text-center">{{ graph_param }}</p><br>
+    <form action="/interactive_data_analysis/" method="post">
+        {% csrf_token %}
+        <label for="interactive_data_analysis">Data Source :</label>
+        <input id="interactive_data_analysis" type="text"
+               name="interactive_data_analysis" required value="{{ data_file_to_be_used }}">
+        <label for="interactive_data_analysis">X Axis Column Name :</label>
+        <input id="x_axis_val" type="text"
+               name="x_axis_val" required value="{{ x_axis_val }}">
+        <label for="interactive_data_analysis">Y Axis Column Name :</label>
+        <input id="y_axis_val" type="text"
+               name="y_axis_val" required value="{{ y_axis_val }}">
+        <input type="submit" value="OK">
+    </form>
+</div>
+<div>
+    <br>
+    <p>Data source in use : <strong>{{ data_file }}</strong></p>
+    <br>
+    <p>X axis in use : <strong>{{ x_axis }}</strong></p>
+    <br>
+    <p>Y axis in use : <strong>{{ y_axis }}</strong></p>
+    <br>
     <p class="text-center"><img src='data:image/png;base64,{{ graph }}'></p>
 </div>
 </body>
