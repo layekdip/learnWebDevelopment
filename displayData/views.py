@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from displayData.forms import DataSourceNameForm
 from displayData.scripts.time_provider import get_time
 from displayData.scripts.read_data import get_data
 from displayData.scripts.plot_data import plot_data_with_bar
